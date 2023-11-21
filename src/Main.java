@@ -1,17 +1,38 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        VotingSystem voSys = new VotingSystem();
+        ArrayList<String> choices = new ArrayList<String>();
+        ArrayList<String> choices2 = new ArrayList<String>();
+        choices2.add("Java");
+        choices2.add("Python");
+        choices2.add("JavaScript");
+        choices2.add("C/C++");
+        choices2.add("Golang");
+        choices2.add("None");
+        choices.add("Me");
+        choices.add("You");
+        choices.add("him");
+        voSys.createVoting("Who is the best person on the Earth?", true, 0, choices );
+        voSys.printResults(0);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        voSys.vote(0, new Person("Tom", "Hardy"));
+        voSys.vote(0, new Person("Mohsen", "Yeganeh"));
+        voSys.vote(0, new Person("John", "Wick"));
+        voSys.printResults(0);
+        voSys.printVoters(0);
+        voSys.createVoting("What is the best language among these?", false, 0, choices2);
+        voSys.vote(1, new Person("Tom", "hardy"));
+        voSys.vote(1, new Person("Mohsen", "Yeganeh"));
+        voSys.vote(1, new Person("john", "Wick"));
+        voSys.vote(1, new Person("Ethan", "Young"));
+        voSys.vote(1, new Person("Donald", "mc.ly"));
+        voSys.vote(1, new Person("Sam", "Smith"));
+        voSys.printResults(1);
+        voSys.printVoters(1);
+        voSys.printVoting(1);
+        voSys.printResults(1);
     }
 }
