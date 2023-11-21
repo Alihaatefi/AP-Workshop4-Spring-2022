@@ -5,10 +5,10 @@ public class Vote {
     private final String date;
 
     public Vote(Person voter, String date){
-        public Person getVoter();
-        public String getDate();
-        
+    this.voter = voter;
+    this.date = date;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -16,6 +16,14 @@ public class Vote {
         if (o == null || getClass() != o.getClass()) return false;
         Vote vote = (Vote) o;
         return Objects.equals(voter, vote.voter) && Objects.equals(date, vote.date);
+    }
+
+    public Person getVoter() {
+        return voter;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     @Override
